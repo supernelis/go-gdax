@@ -18,6 +18,9 @@ type Order struct {
 	CancelAfter string  `json:"cancel_after,omitempty"`
 	// Market Order
 	Funds float64 `json:"funds,string,omitempty"`
+	// Stop Order
+	Stop string `json:"stop,omitempty"`
+	StopPrice float64 `json:"stop_price,string,omitempty"`
 	// Response Fields
 	Id            string  `json:"id"`
 	Status        string  `json:"status,omitempty"`

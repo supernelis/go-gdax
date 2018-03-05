@@ -62,6 +62,35 @@ func TestCreateMarketOrders(t *testing.T) {
 	}
 }
 
+func TestCreatStopOrder(t *testing.T) {
+	client := NewTestClient()
+
+	order := Order{
+		Funds: 1,
+		Size:      1000.00,
+		Side:      "buy",
+		Type:      "market",
+		ProductId: "BTC-USD",
+		Stop: "entry",
+		StopPrice:11000,
+	}
+
+	savedOrder, err := client.CreateOrder(&order)
+	if err != nil {
+		t.Error(err)
+	}
+
+	if savedOrder.Id == "" {
+		t.Error(errors.New("No create id found"))
+	}
+
+	props := []string{"Price", "Size", "Side", "ProductId"}
+	_, err = CompareProperties(order, savedOrder, props)
+	if err != nil {
+		t.Error(err)
+	}
+}
+
 func TestCancelOrder(t *testing.T) {
 	client := NewTestClient()
 
