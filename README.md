@@ -211,6 +211,8 @@ To test with Coinbase's public sandbox set the following environment variables:
   - TEST_COINBASE_KEY
   - TEST_COINBASE_PASSPHRASE
 
+The test use funds from this sandbox environment so ensure to deposit enough funds on your sandbox to run the tests, like 100K USD and 50 BTC.
+
 Then run `go test`
 ```sh
 TEST_COINBASE_SECRET=secret TEST_COINBASE_KEY=key TEST_COINBASE_PASSPHRASE=passphrase go test
